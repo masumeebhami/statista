@@ -27,9 +27,10 @@ class CalculateController extends Controller
         $result = array();
         
         for ($i = 1; $i <= 100; $i++) {
+            // generate an array of input parameters for sending to mul function
             $a = [array($i, $validated['first_number']), array($i, $validated['second_number']), array($i, $validated['first_number']*$validated['second_number']) ];
-        $b = array($this->mul($a[0]), $this->mul($a[1]), $this->mul($a[2]));
-       
+            $b = array($this->mul($a[0]), $this->mul($a[1]), $this->mul($a[2]));
+            // check if number is multiple for inputs
             if(! in_array(true, $b) )
             array_push($result, $i);
             else
@@ -49,6 +50,7 @@ class CalculateController extends Controller
     
         return view('welcome', ['result' => $result]);
     }
+    // calculate if number is multiple for selected one or not
     public function mul(array $number)
     {
         if( $number[0] % $number[1] == 0)
