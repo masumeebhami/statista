@@ -46,7 +46,7 @@ class CalculateController extends Controller
             }
 
         }
-   
+    
         return view('welcome', ['result' => $result]);
     }
     public function mul(array $number)
